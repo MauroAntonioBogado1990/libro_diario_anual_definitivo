@@ -2,7 +2,7 @@
 
 {
     'name': 'libro diario anual',
-    'version': '16.0',
+    'version': '15.0',
     'depends': [
         'base','stock','account'
     ],

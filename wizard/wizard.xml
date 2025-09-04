@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+    <record id="view_wizard_book_form" model="ir.ui.view">
+        <field name="name">wizard.book.form</field>
+        <field name="model">wizard.book</field>
+        <field name="arch" type="xml">
+            <form string="Agregar Libros Anuales">
+                <group>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="journal_ids" widget="many2many_tags"/>
+                    <field name="number_journal"/>
+                </group>
+                <footer>
+                    <button string="Confirmar" type="object" name="action_confirm" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_add_book_anual_wizard" model="ir.actions.act_window">
+        <field name="name">Agregar Libros Anuales</field>
+        <field name="res_model">wizard.book</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_wizard_book_form"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="action_book"
+                  name="Libro Diario Anual"
+                  parent="account.menu_finance_reports"
+                  action="action_open_add_book_anual_wizard"
+                  sequence="20"/>
+
+</data>
+</odoo>
